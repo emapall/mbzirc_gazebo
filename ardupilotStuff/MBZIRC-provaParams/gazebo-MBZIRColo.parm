@@ -1,0 +1,16 @@
+# mbzircolo per ora è ancora un quadricottero
+FRAME_CLASS	2
+FRAME_TYPE	1 
+#LA SPARO A CASO http://ardupilot.org/copter/docs/frame-type-configuration.html
+#ma dovrebbe essere o un plus o un X
+
+# IRLOCK FEATURE
+RC8_OPTION 39
+PLND_ENABLED    1
+PLND_TYPE       3
+# SONAR FOR IRLOCK
+SIM_SONAR_SCALE 10
+RNGFND_TYPE 1
+RNGFND_SCALING 10
+RNGFND_PIN 0
+RNGFND_MAX_CM 5000

@@ -1,0 +1,215 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+<model name="MBZIRColo_gimbal_camera">
+  <pose>12 12 0.5 0 0 0</pose>
+  <static>false</static>
+    <link name='base_link'>
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_main_visual'>
+        <geometry>
+         <mesh>
+           <scale>0.001 0.001 0.001</scale>
+           <uri>model://gimbal_small_2d/meshes/base_main.dae</uri>
+         </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/FlatBlack</name>
+          </script>
+        </material>
+      </visual>
+
+     <visual name='base_arm_visual'>
+        <geometry>
+         <mesh>
+           <scale>0.001 0.001 0.001</scale>
+           <uri>model://gimbal_small_2d/meshes/base_arm.dae</uri>
+         </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/FlatBlack</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='base_collision'>
+        <pose>0.01 0.075 -0.025 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.05 0.15</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <link name='tilt_link'>
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00001</iyy>
+          <iyz>0</iyz>
+          <izz>0.00001</izz>
+        </inertia>
+      </inertial>
+      <visual name='tilt_visual'>
+        <pose>0 0 -0.005 0 0 0</pose>
+        <geometry>
+         <mesh>
+           <scale>0.001 0.001 0.001</scale>
+           <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
+         </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='tilt_collision'>
+        <pose>0 0 -0.005 0 0 0</pose>
+        <geometry>
+         <mesh>
+           <scale>0.001 0.001 0.001</scale>
+           <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
+         </mesh>
+        </geometry>
+      </collision>
+
+      <visual name='camera_visual'>
+        <pose>0 0 0.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.025</radius>
+            <length>0.050</length>
+          </cylinder>
+        </geometry>
+
+         <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='camera_collision'>
+        <pose>0 0 0.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.025</radius>
+            <length>0.050</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <sensor name="camera" type="depth">
+        <pose>0 0 0 -1.57 -1.57 0</pose>
+        <update_rate>10</update_rate>
+        <camera>
+          <horizontal_fov>2.0</horizontal_fov>
+          <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>100</far>
+          </clip>
+        </camera>
+        <!--<always_on>1</always_on>
+        <visualize>1</visualize>-->
+        <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+          <baseline>0.2</baseline>
+          <alwaysOn>true</alwaysOn>
+          <!-- Keep this zero, update_rate in the parent <sensor> tag
+            will control the frame rate. -->
+          <updateRate>0.0</updateRate>
+          <cameraName>gimbal_camera_ir</cameraName>
+          <imageTopicName>/gimbal/image_raw</imageTopicName>
+          <cameraInfoTopicName>/gimbal/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/gimbal/image_raw</depthImageTopicName>
+          <depthImageInfoTopicName>/gimbal/camera_info</depthImageInfoTopicName>
+          <pointCloudTopicName>/gimbal/points</pointCloudTopicName>
+          <frameName>gimbal</frameName>
+          <pointCloudCutoff>0.05</pointCloudCutoff>
+          <distortionK1>0</distortionK1>
+          <distortionK2>0</distortionK2>
+          <distortionK3>0</distortionK3>
+          <distortionT1>0</distortionT1>
+          <distortionT2>0</distortionT2>
+          <CxPrime>0</CxPrime>
+          <Cx>0</Cx>
+          <Cy>0</Cy>
+          <focalLength>0</focalLength>
+          <hackBaseline>0</hackBaseline>
+        </plugin>
+      </sensor>
+
+    </link>
+   
+    <joint name='tilt_joint' type='revolute'>
+       <parent>tilt_link</parent> 
+       <child>base_link</child>
+        <!--I inverted the child and partend wrt the gimbal small 2d, because the axis poses dindn't 
+        convince much. Being this a revulte joint and having the 2 reference frames AT LEAST parallel
+        if not coincindent, nothing should change.
+        Needs profound verification.-->
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+
+      <axis>
+        <xyz>1 0 0</xyz>
+        <dynamics>
+          <damping>0.5</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame> <!--non cambia: 
+        sia che sia true sia che sia false, l'asse viene sempre posizionato attraverso il baricentro della camera, e quindi
+        questa da sola non cade mai. (see note above). -->
+        <limit>
+          <lower>-3.14159265</lower>
+          <upper>3.14159265</upper>
+          <!--<effort>10</effort>-->
+         <!-- <velocity>-1</velocity>-->
+        </limit>
+      </axis>
+      <pose>0 0 0 0 0 0</pose> <!-- moving the axis along the axis itself should 
+      change nothing-->
+    </joint>
+
+  </model>
+</sdf>

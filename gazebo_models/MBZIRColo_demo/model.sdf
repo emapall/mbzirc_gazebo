@@ -1,0 +1,325 @@
+<?xml version='1.0'?>
+<sdf version="1.6">
+  <model name="MBZIRColo_demo">
+    <include>
+      <uri>model://MBZIRColo_base</uri>
+    </include>
+
+    <include>
+      <uri>model://MBZIRColo_gimbal_camera</uri>
+      <pose>0 -0.01 0.070 1.57 0 1.57</pose>
+    </include>
+    <joint name="gimbal_camera_mount" type="revolute">
+      <parent>MBZIRColo_base::base_link</parent>
+      <child>MBZIRColo_gimbal_camera::base_link</child>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <xyz>0 0 1</xyz>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+
+
+    <!-- plugins -->
+    <plugin name="rotor_0_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.01 0 0</cp>
+      <forward>0 -1 0</forward>      <!-- cw -->
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_0</link_name>
+    </plugin>
+    <plugin name="rotor_0_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.1 0 0</cp>
+      <forward>0 +1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_0</link_name>
+    </plugin>
+
+    <plugin name="rotor_1_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.1 0 0</cp>
+      <forward>0 1 0</forward>      <!-- ccw -->
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_1</link_name>
+    </plugin>
+    <plugin name="rotor_1_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.1 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_1</link_name>
+    </plugin>
+
+    <plugin name="rotor_2_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.1 0 0</cp>
+      <forward>0 -1 0</forward>      <!-- cw -->
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_2</link_name>
+    </plugin>
+    <plugin name="rotor_2_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.1 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_2</link_name>
+    </plugin>
+
+    <plugin name="rotor_3_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.1 0 0</cp>
+      <forward>0 1 0</forward>      <!-- ccw -->
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_3</link_name>
+    </plugin>
+    <plugin name="rotor_3_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.1 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_3</link_name>
+    </plugin>
+
+    <plugin name="rotor_4_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.1 0 0</cp>
+      <forward>0 1 0</forward>      <!-- ccw -->
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_4</link_name>
+    </plugin>
+    <plugin name="rotor_4_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.1 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_4</link_name>
+    </plugin>
+
+    <plugin name="rotor_5_blade_1" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.1 0 0</cp>
+      <forward>0 -1 0</forward>      <!-- cw-->
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_5</link_name>
+    </plugin>
+    <plugin name="rotor_0_blade_2" filename="libLiftDragPlugin.so">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.1 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>MBZIRColo_base::rotor_5</link_name>
+    </plugin>
+
+    <plugin name="arducopter_plugin" filename="libArduCopterPlugin.so">
+      <!--standard plugin substitutes my personal plugin:"libmyLibArducopterPlugin.so"-->
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <fdm_port_out>9003</fdm_port_out>
+      <!--<imuName>Name current model::
+          Name of the model in which the link it's in ::
+          imu_link(name of the link)::
+          imu_sensor (name of the sensor)
+
+          NOTE:
+          It's rather odd that also the top level model name is present, according to this http://gazebosim.org/tutorials?tut=nested_model&cat=build_robot
+
+          tutorial, "references to nested model links need to be scoped but minus the top level model name prefix"
+          so theoretically one may try to take away the first name (the demo one);
+
+          I think i tried to do it but it didn't worked.
+          Anyway like this it should work, so we're all good.
+          </imuName>-->
+
+      <imuName>MBZIRColo_demo::MBZIRColo_base::imu_link::imu_sensor</imuName>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <rotor id="0">
+        <vel_p_gain>0.20</vel_p_gain>
+        <vel_i_gain>0</vel_i_gain>
+        <vel_d_gain>0</vel_d_gain>
+        <vel_i_max>0</vel_i_max>
+        <vel_i_min>0</vel_i_min>
+        <vel_cmd_max>2.5</vel_cmd_max>
+        <vel_cmd_min>-2.5</vel_cmd_min>
+        <jointName>MBZIRColo_base::rotor_0_joint</jointName>
+        <turningDirection>cw</turningDirection>
+        <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+      </rotor>
+      <rotor id="1">
+        <vel_p_gain>0.20</vel_p_gain>
+        <vel_i_gain>0</vel_i_gain>
+        <vel_d_gain>0</vel_d_gain>
+        <vel_i_max>0</vel_i_max>
+        <vel_i_min>0</vel_i_min>
+        <vel_cmd_max>2.5</vel_cmd_max>
+        <vel_cmd_min>-2.5</vel_cmd_min>
+        <jointName>MBZIRColo_base::rotor_1_joint</jointName>
+        <turningDirection>ccw</turningDirection>
+        <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+      </rotor>
+      <rotor id="2">
+        <vel_p_gain>0.20</vel_p_gain>
+        <vel_i_gain>0</vel_i_gain>
+        <vel_d_gain>0</vel_d_gain>
+        <vel_i_max>0</vel_i_max>
+        <vel_i_min>0</vel_i_min>
+        <vel_cmd_max>2.5</vel_cmd_max>
+        <vel_cmd_min>-2.5</vel_cmd_min>
+        <jointName>MBZIRColo_base::rotor_2_joint</jointName>
+        <turningDirection>cw</turningDirection>
+        <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+      </rotor>
+      <rotor id="3">
+        <vel_p_gain>0.20</vel_p_gain>
+        <vel_i_gain>0</vel_i_gain>
+        <vel_d_gain>0</vel_d_gain>
+        <vel_i_max>0</vel_i_max>
+        <vel_i_min>0</vel_i_min>
+        <vel_cmd_max>2.5</vel_cmd_max>
+        <vel_cmd_min>-2.5</vel_cmd_min>
+        <jointName>MBZIRColo_base::rotor_3_joint</jointName>
+        <turningDirection>ccw</turningDirection>
+        <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+      </rotor>
+      <rotor id="4">
+        <vel_p_gain>0.20</vel_p_gain>
+        <vel_i_gain>0</vel_i_gain>
+        <vel_d_gain>0</vel_d_gain>
+        <vel_i_max>0</vel_i_max>
+        <vel_i_min>0</vel_i_min>
+        <vel_cmd_max>2.5</vel_cmd_max>
+        <vel_cmd_min>-2.5</vel_cmd_min>
+        <jointName>MBZIRColo_base::rotor_4_joint</jointName>
+        <turningDirection>ccw</turningDirection>
+        <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+      </rotor>
+      <rotor id="5">
+        <vel_p_gain>0.20</vel_p_gain>
+        <vel_i_gain>0</vel_i_gain>
+        <vel_d_gain>0</vel_d_gain>
+        <vel_i_max>0</vel_i_max>
+        <vel_i_min>0</vel_i_min>
+        <vel_cmd_max>2.5</vel_cmd_max>
+        <vel_cmd_min>-2.5</vel_cmd_min>
+        <jointName>MBZIRColo_base::rotor_5_joint</jointName>
+        <turningDirection>cw</turningDirection>
+        <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+      </rotor>
+    </plugin>
+
+  </model>
+<!-- visual markers for debugging Fetch the 350  commented lines present in the iris_with_standoff_demo-->
+</sdf>
+
+

@@ -1,0 +1,11 @@
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find mbzirc_gazebo)/gazebo_worlds/full.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="verbose" value="true" />
+    <!-- more default parameters can be changed here -->
+  </include>
+  <!-- #TODO: FIX WHEN ROS VISION IS READY-->
+  <node pkg="mbzirc_vision" name="__FIX_ME__" type="ros_vision.py"/>
+</launch>
