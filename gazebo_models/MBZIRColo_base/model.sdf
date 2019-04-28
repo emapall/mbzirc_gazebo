@@ -42,90 +42,131 @@
         </surface>
       </collision>
       <!--DRONE VISUALS-->
-      <visual name="base_link_collision_visual">
-        <!--UNA SCATOLA VERDE FLUO TRASPARENTE CHE INDICA I LIMITI DELLA COLLISIONE DEL DRONE
-        #TODO: ANDRA' TOLTA NON APPENA ABBIAMO LE MESHES DEL DRONE-->
-        <pose>0 0 0 0 0 0</pose>
+      <visual name='chassis_visual'>
+        <pose frame=''>0 0 0 1.57 0 0</pose>
         <geometry>
-          <box>
-            <size>0.47 0.47 0.23</size>
-          </box>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/telaio.stl</uri>
+          </mesh>
         </geometry>
-        <transparency>0.5 </transparency>
         <material>
           <script>
             <name>Gazebo/RedBright</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <uri>__default__</uri>
           </script>
         </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
       </visual>
-      <visual name='base_link_visual'>
+      <visual name='rotor_0_motor_visual'>
+        <pose>0 -0.28 0.04 1.57 -0 0</pose>
         <geometry>
-          <sphere>
-            <radius>.01</radius>
-          </sphere>
-        </geometry>
-      </visual>
-      <visual name='front_left_leg_visual'>
-        <pose>0.123 0.22 -0.11 0 0 0</pose>
-        <geometry>
-          <cylinder>
-            <radius>0.005</radius>
-            <length>0.17</length>
-          </cylinder>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+            <uri>__default__</uri>
           </script>
         </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
       </visual>
-      <visual name='front_right_leg_visual'>
-        <pose>0.123 -0.22 -0.11 0 0 0</pose>
+
+      <visual name='rotor_1_motor_visual'>
+        <pose frame=''>0.0 0.28 0.04 1.57 0 0</pose>
         <geometry>
-          <cylinder>
-            <radius>0.005</radius>
-            <length>0.17</length>
-          </cylinder>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+            <uri>__default__</uri>
           </script>
         </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
       </visual>
-      <visual name='rear_left_leg_visual'>
-        <pose>-0.140 0.21 -0.11 0 0 0</pose>
+
+      <visual name='rotor_2_motor_visual'>
+        <pose frame=''>0.2425 0.14 0.04 1.57 0 0</pose>
         <geometry>
-          <cylinder>
-            <radius>0.005</radius>
-            <length>0.17</length>
-          </cylinder>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+            <uri>__default__</uri>
           </script>
         </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
       </visual>
-      <visual name='rear_right_leg_visual'>
-        <pose>-0.140 -0.21 -0.11 0 0 0</pose>
+
+      <visual name='rotor_3_motor_visual'>
+        <pose frame=''>-0.2425 -0.14 0.04 1.57 0 0</pose>
         <geometry>
-          <cylinder>
-            <radius>0.005</radius>
-            <length>0.17</length>
-          </cylinder>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+            <uri>__default__</uri>
           </script>
         </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
       </visual>
+
+      <visual name='rotor_4_motor_visual'>
+        <pose frame=''>0.2425 -0.14 0.04 1.57 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+
+      <visual name='rotor_5_motor_visual'>
+        <pose frame=''>-0.2425 0.14 0.04 1.57 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+
     </link>
 
     <link name='MBZIRColo/ground_truth/odometry_sensorgt_link'>
@@ -216,7 +257,7 @@
 the hexa is an x frame type (meaning the FRONT is in between the 2 front legs, and 2 legs are on the 
 right-left axis-->
     <link name='rotor_0'>      <!-- RIGHT-->
-      <pose>0 -0.28 0.023 0 -0 0</pose>
+      <pose>0 -0.28 0.023 0 -0 0</pose>      <!-- to be checked: if thesew are in fact the real dimension of our drone-->
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>0.025</mass>
@@ -230,7 +271,7 @@ right-left axis-->
         </inertia>
       </inertial>
       <collision name='rotor_0_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0.06 0 -0 0</pose>
         <geometry>
           <cylinder>
             <length>0.01</length>
@@ -247,19 +288,29 @@ right-left axis-->
         </surface>
       </collision>
       <visual name='rotor_0_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>        <!--numbers found by hand -->
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
           </mesh>
         </geometry>
-        <material>
+        <!--<material>
           <script>
             <name>Gazebo/Blue</name>
             <uri>__default__</uri>
           </script>
-        </material>
+          <shader type='pixel'>
+            <normal_map>__default__</normal_map>
+          </shader>
+          <ambient>0 0 1 1</ambient>
+          <diffuse>0 0 1 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material> OPTIONAL COLOURS + GAZEBO AUTO GENERATED CODE
+        i will not copy this same things onto further rotors-->
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -319,11 +370,11 @@ right-left axis-->
         </surface>
       </collision>
       <visual name='rotor_1_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>        <!--numbers found by hand -->
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -391,19 +442,19 @@ right-left axis-->
         </surface>
       </collision>
       <visual name='rotor_2_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>        <!--numbers found by hand -->
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
           </mesh>
         </geometry>
-        <material>
+        <!--<material>
           <script>
             <name>Gazebo/Blue</name>
             <uri>__default__</uri>
           </script>
-        </material>
+        </material>-->
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -463,11 +514,11 @@ right-left axis-->
         </surface>
       </collision>
       <visual name='rotor_3_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>        <!--numbers found by hand -->
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -535,16 +586,16 @@ right-left axis-->
         </surface>
       </collision>
       <visual name='rotor_4_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>        <!--numbers found by hand -->
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
           </mesh>
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/DarkGrey</name>
             <uri>__default__</uri>
           </script>
         </material>
@@ -607,19 +658,19 @@ right-left axis-->
         </surface>
       </collision>
       <visual name='rotor_5_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>        <!--numbers found by hand -->
         <geometry>
           <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
           </mesh>
         </geometry>
-        <material>
+        <!--<material>
           <script>
             <name>Gazebo/Blue</name>
             <uri>__default__</uri>
           </script>
-        </material>
+        </material>-->
       </visual>
       <gravity>1</gravity>
       <velocity_decay/>
