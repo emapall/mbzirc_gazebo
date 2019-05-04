@@ -1,0 +1,1650 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='collapsed_police_station'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://collapsed_police_station/meshes/collapsed_police_station.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://collapsed_police_station/meshes/collapsed_police_station.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0.016013 -0.16169 0 0 -0 0</pose>
+    </model>
+    <model name='Gas Station'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://gas_station/meshes/gas_station.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://gas_station/meshes/gas_station.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://gas_station/materials/scripts</uri>
+              <uri>model://gas_station/materials/textures</uri>
+              <name>GasStation/Diffuse</name>
+            </script>
+            <shader type='normal_map_tangent_space'>
+              <normal_map>GasStation_Normal.png</normal_map>
+            </shader>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-20.4219 -8.25472 0 0 -0 0</pose>
+    </model>
+    <model name='water_tower'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://water_tower/meshes/water_tower.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://water_tower/meshes/water_tower.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>10.4384 -18.9028 0 0 -0 0</pose>
+    </model>
+    <model name='MBZIRColo_demo'>
+      <link name='MBZIRColo_base::base_link'>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>2.4</mass>
+          <inertia>
+            <ixx>0.03</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.03</iyy>
+            <iyz>0</iyz>
+            <izz>0.045</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose frame=''>0 0 -0.08 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.7 0.7 0.23</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>100</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='chassis_visual'>
+          <pose frame=''>0 0 0 1.57 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/telaio.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/RedBright</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <visual name='rotor_0_motor_visual'>
+          <pose frame=''>0 -0.28 0.04 1.57 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <visual name='rotor_1_motor_visual'>
+          <pose frame=''>0 0.28 0.04 1.57 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <visual name='rotor_2_motor_visual'>
+          <pose frame=''>0.2425 0.14 0.04 1.57 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <visual name='rotor_3_motor_visual'>
+          <pose frame=''>-0.2425 -0.14 0.04 1.57 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <visual name='rotor_4_motor_visual'>
+          <pose frame=''>0.2425 -0.14 0.04 1.57 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <visual name='rotor_5_motor_visual'>
+          <pose frame=''>-0.2425 0.14 0.04 1.57 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/motore.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <pose frame=''>0 0 0.194923 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='MBZIRColo_base::MBZIRColo/ground_truth/odometry_sensorgt_link'>
+        <pose frame=''>0 0 0.194923 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.15</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0002</iyy>
+            <iyz>0</iyz>
+            <izz>0.0002</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::MBZIRColo/ground_truth/odometry_sensorgt_joint' type='revolute'>
+        <child>MBZIRColo_base::MBZIRColo/ground_truth/odometry_sensorgt_link</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='MBZIRColo_base::imu_link'>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.15</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2e-05</izz>
+          </inertia>
+        </inertial>
+        <sensor name='imu_sensor' type='imu'>
+          <pose frame=''>0 0 0 -3.14159 -0 0</pose>
+          <always_on>1</always_on>
+          <update_rate>1000</update_rate>
+          <imu/>
+        </sensor>
+        <pose frame=''>0 0 0.194923 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::imu_joint' type='revolute'>
+        <child>MBZIRColo_base::imu_link</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='MBZIRColo_base::rotor_0'>
+        <pose frame=''>0 -0.28 0.217923 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_0_collision'>
+          <pose frame=''>0 0 0.06 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.01</length>
+              <radius>0.12</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_0_visual'>
+          <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
+            </mesh>
+          </geometry>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::rotor_0_joint' type='revolute'>
+        <child>MBZIRColo_base::rotor_0</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='MBZIRColo_base::rotor_1'>
+        <pose frame=''>0 0.28 0.217923 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.01</length>
+              <radius>0.12</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_1_visual'>
+          <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::rotor_1_joint' type='revolute'>
+        <child>MBZIRColo_base::rotor_1</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='MBZIRColo_base::rotor_2'>
+        <pose frame=''>0.2425 0.14 0.217923 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.01</length>
+              <radius>0.12</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_2_visual'>
+          <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::rotor_2_joint' type='revolute'>
+        <child>MBZIRColo_base::rotor_2</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='MBZIRColo_base::rotor_3'>
+        <pose frame=''>-0.2425 -0.14 0.217923 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.01</length>
+              <radius>0.12</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_3_visual'>
+          <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::rotor_3_joint' type='revolute'>
+        <child>MBZIRColo_base::rotor_3</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='MBZIRColo_base::rotor_4'>
+        <pose frame=''>0.2425 -0.14 0.217923 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_4_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.01</length>
+              <radius>0.12</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_4_visual'>
+          <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::rotor_4_joint' type='revolute'>
+        <child>MBZIRColo_base::rotor_4</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='MBZIRColo_base::rotor_5'>
+        <pose frame=''>-0.2425 0.14 0.217923 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_5_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.01</length>
+              <radius>0.12</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_5_visual'>
+          <pose frame=''>0.016 -0.0059 0.06 0 -1.57 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://MBZIRColo_base/meshes/elica.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_base::rotor_5_joint' type='revolute'>
+        <child>MBZIRColo_base::rotor_5</child>
+        <parent>MBZIRColo_base::base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <static>0</static>
+      <static>0</static>
+      <link name='MBZIRColo_gimbal_camera::base_link'>
+        <inertial>
+          <mass>0.2</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0001</iyy>
+            <iyz>0</iyz>
+            <izz>0.0001</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <visual name='base_main_visual'>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://gimbal_small_2d/meshes/base_main.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/FlatBlack</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='base_arm_visual'>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://gimbal_small_2d/meshes/base_arm.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/FlatBlack</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='base_collision'>
+          <pose frame=''>0.01 0.075 -0.025 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.15</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <pose frame=''>0 -0.01 0.07 1.57 -0 1.57</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='MBZIRColo_gimbal_camera::tilt_link'>
+        <inertial>
+          <mass>0.01</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1e-05</iyy>
+            <iyz>0</iyz>
+            <izz>1e-05</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <visual name='tilt_visual'>
+          <pose frame=''>0 0 -0.005 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='tilt_collision'>
+          <pose frame=''>0 0 -0.005 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='camera_visual'>
+          <pose frame=''>0 0 0.02 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.05</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='camera_collision'>
+          <pose frame=''>0 0 0.02 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.05</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <sensor name='camera' type='depth'>
+          <pose frame=''>0 0 0 -1.57 -1.57 0</pose>
+          <update_rate>10</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>2</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>100</far>
+            </clip>
+          </camera>
+          <plugin name='camera_plugin' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>0.0</updateRate>
+            <cameraName>gimbal_camera_ir</cameraName>
+            <imageTopicName>/gimbal/image_raw</imageTopicName>
+            <cameraInfoTopicName>/gimbal/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/gimbal/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/gimbal/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/gimbal/points</pointCloudTopicName>
+            <frameName>gimbal</frameName>
+            <pointCloudCutoff>0.05</pointCloudCutoff>
+            <distortionK1>0</distortionK1>
+            <distortionK2>0</distortionK2>
+            <distortionK3>0</distortionK3>
+            <distortionT1>0</distortionT1>
+            <distortionT2>0</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
+        </sensor>
+        <pose frame=''>0 -0.01 0.07 1.57 -0 1.57</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='MBZIRColo_gimbal_camera::tilt_joint' type='revolute'>
+        <parent>MBZIRColo_gimbal_camera::tilt_link</parent>
+        <child>MBZIRColo_gimbal_camera::base_link</child>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+        <axis>
+          <xyz>0.000796 1 0</xyz>
+          <dynamics>
+            <damping>0.5</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+          </limit>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </joint>
+      <joint name='gimbal_camera_mount' type='revolute'>
+        <parent>MBZIRColo_base::base_link</parent>
+        <child>MBZIRColo_gimbal_camera::base_link</child>
+        <axis>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <xyz>0 0 1</xyz>
+          <use_parent_model_frame>1</use_parent_model_frame>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <plugin name='rotor_0_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.01 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_0</link_name>
+      </plugin>
+      <plugin name='rotor_0_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.1 0 0</cp>
+        <forward>0 +1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_0</link_name>
+      </plugin>
+      <plugin name='rotor_1_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.1 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_1</link_name>
+      </plugin>
+      <plugin name='rotor_1_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.1 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_1</link_name>
+      </plugin>
+      <plugin name='rotor_2_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.1 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_2</link_name>
+      </plugin>
+      <plugin name='rotor_2_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.1 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_2</link_name>
+      </plugin>
+      <plugin name='rotor_3_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.1 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_3</link_name>
+      </plugin>
+      <plugin name='rotor_3_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.1 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_3</link_name>
+      </plugin>
+      <plugin name='rotor_4_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.1 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_4</link_name>
+      </plugin>
+      <plugin name='rotor_4_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.1 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_4</link_name>
+      </plugin>
+      <plugin name='rotor_5_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.1 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_5</link_name>
+      </plugin>
+      <plugin name='rotor_0_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.1 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>MBZIRColo_base::rotor_5</link_name>
+      </plugin>
+      <plugin name='arducopter_plugin' filename='libArduCopterPlugin.so'>
+        <fdm_addr>127.0.0.1</fdm_addr>
+        <fdm_port_in>9002</fdm_port_in>
+        <fdm_port_out>9003</fdm_port_out>
+        <imuName>MBZIRColo_demo::MBZIRColo_base::imu_link::imu_sensor</imuName>
+        <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+        <rotor id='0'>
+          <vel_p_gain>0.20</vel_p_gain>
+          <vel_i_gain>0</vel_i_gain>
+          <vel_d_gain>0</vel_d_gain>
+          <vel_i_max>0</vel_i_max>
+          <vel_i_min>0</vel_i_min>
+          <vel_cmd_max>2.5</vel_cmd_max>
+          <vel_cmd_min>-2.5</vel_cmd_min>
+          <jointName>MBZIRColo_base::rotor_0_joint</jointName>
+          <turningDirection>cw</turningDirection>
+          <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+        </rotor>
+        <rotor id='1'>
+          <vel_p_gain>0.20</vel_p_gain>
+          <vel_i_gain>0</vel_i_gain>
+          <vel_d_gain>0</vel_d_gain>
+          <vel_i_max>0</vel_i_max>
+          <vel_i_min>0</vel_i_min>
+          <vel_cmd_max>2.5</vel_cmd_max>
+          <vel_cmd_min>-2.5</vel_cmd_min>
+          <jointName>MBZIRColo_base::rotor_1_joint</jointName>
+          <turningDirection>ccw</turningDirection>
+          <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+        </rotor>
+        <rotor id='2'>
+          <vel_p_gain>0.20</vel_p_gain>
+          <vel_i_gain>0</vel_i_gain>
+          <vel_d_gain>0</vel_d_gain>
+          <vel_i_max>0</vel_i_max>
+          <vel_i_min>0</vel_i_min>
+          <vel_cmd_max>2.5</vel_cmd_max>
+          <vel_cmd_min>-2.5</vel_cmd_min>
+          <jointName>MBZIRColo_base::rotor_2_joint</jointName>
+          <turningDirection>cw</turningDirection>
+          <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+        </rotor>
+        <rotor id='3'>
+          <vel_p_gain>0.20</vel_p_gain>
+          <vel_i_gain>0</vel_i_gain>
+          <vel_d_gain>0</vel_d_gain>
+          <vel_i_max>0</vel_i_max>
+          <vel_i_min>0</vel_i_min>
+          <vel_cmd_max>2.5</vel_cmd_max>
+          <vel_cmd_min>-2.5</vel_cmd_min>
+          <jointName>MBZIRColo_base::rotor_3_joint</jointName>
+          <turningDirection>ccw</turningDirection>
+          <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+        </rotor>
+        <rotor id='4'>
+          <vel_p_gain>0.20</vel_p_gain>
+          <vel_i_gain>0</vel_i_gain>
+          <vel_d_gain>0</vel_d_gain>
+          <vel_i_max>0</vel_i_max>
+          <vel_i_min>0</vel_i_min>
+          <vel_cmd_max>2.5</vel_cmd_max>
+          <vel_cmd_min>-2.5</vel_cmd_min>
+          <jointName>MBZIRColo_base::rotor_4_joint</jointName>
+          <turningDirection>ccw</turningDirection>
+          <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+        </rotor>
+        <rotor id='5'>
+          <vel_p_gain>0.20</vel_p_gain>
+          <vel_i_gain>0</vel_i_gain>
+          <vel_d_gain>0</vel_d_gain>
+          <vel_i_max>0</vel_i_max>
+          <vel_i_min>0</vel_i_min>
+          <vel_cmd_max>2.5</vel_cmd_max>
+          <vel_cmd_min>-2.5</vel_cmd_min>
+          <jointName>MBZIRColo_base::rotor_5_joint</jointName>
+          <turningDirection>cw</turningDirection>
+          <rotorVelocitySlowdownSim>1</rotorVelocitySlowdownSim>
+        </rotor>
+      </plugin>
+      <pose frame=''>-12.3564 -0.11106 0 0 -0 0</pose>
+    </model>
+    
+    <actor name="animated_box">
+      <link name="box_link">
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.1</radius>
+            </sphere>
+          </geometry>
+          <transparency>0.0 </transparency>
+          <material>
+            <script>
+              <name>Gazebo/RedBright</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+    <script>
+      <loop>true</loop>
+      <auto_start>true</auto_start>
+      <trajectory id="0" type="square">
+          <waypoint>
+            <time>0.0</time>
+            <pose>15 15 10 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>1.0</time>
+            <pose>-15 15 10 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>2.0</time>
+            <pose>-15 -15 10 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>3.0</time>
+            <pose>15 -15 10 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>4.0</time>
+            <pose>15 15 10 0 0 0</pose>
+          </waypoint>
+      </trajectory>
+    </script>
+  </actor>
+
+
+
+    <state world_name='default'>
+      <sim_time>175 732000000</sim_time>
+      <real_time>177 12353313</real_time>
+      <wall_time>1556464361 16773798</wall_time>
+      <iterations>175732</iterations>
+      <model name='Gas Station'>
+        <pose frame=''>-20.4219 -8.25472 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-20.4219 -8.25472 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='MBZIRColo_demo'>
+        <pose frame=''>-12.3563 -0.111059 -0.000306 -0 0.001086 -2e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='MBZIRColo_base::MBZIRColo/ground_truth/odometry_sensorgt_link'>
+          <pose frame=''>-12.3561 -0.111059 0.194617 -0 0.001086 -2e-06</pose>
+          <velocity>7e-06 -1e-06 2e-06 2e-06 3.4e-05 2.7e-05</velocity>
+          <acceleration>4e-06 -0.002681 -0 0.003031 4e-06 0.053336</acceleration>
+          <wrench>1e-06 -0.000402 -0 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::base_link'>
+          <pose frame=''>-12.3561 -0.111059 0.194617 -0 0.001086 -2e-06</pose>
+          <velocity>7e-06 -1e-06 2e-06 5e-06 3.4e-05 0</velocity>
+          <acceleration>3e-06 -0.001975 -0 0.010079 1.4e-05 7e-06</acceleration>
+          <wrench>6e-06 -0.00474 -0 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::imu_link'>
+          <pose frame=''>-12.3561 -0.111059 0.194617 -0 0.001086 -2e-06</pose>
+          <velocity>7e-06 -1e-06 2e-06 2e-06 3.4e-05 2.7e-05</velocity>
+          <acceleration>4e-06 -0.002665 -0 0.00303 4e-06 0.053347</acceleration>
+          <wrench>1e-06 -0.0004 -0 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::rotor_0'>
+          <pose frame=''>-12.356 -0.391059 0.217617 0 0.001086 3e-06</pose>
+          <velocity>8e-06 -1e-06 1e-06 2e-06 3.4e-05 0</velocity>
+          <acceleration>0.001866 -0.002721 -0.000849 0.003029 4e-06 6.4e-05</acceleration>
+          <wrench>4.7e-05 -6.8e-05 -2.1e-05 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::rotor_1'>
+          <pose frame=''>-12.356 0.168941 0.217617 0 0.001086 -1e-05</pose>
+          <velocity>7e-06 -1e-06 2e-06 2e-06 3.4e-05 0</velocity>
+          <acceleration>-0.001852 -0.002718 0.000842 0.003002 -0 6.4e-05</acceleration>
+          <wrench>-4.6e-05 -6.8e-05 2.1e-05 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::rotor_2'>
+          <pose frame=''>-12.1135 0.02894 0.217353 0 0.001086 1e-06</pose>
+          <velocity>7e-06 -1e-06 -6e-06 1e-06 3.4e-05 -0</velocity>
+          <acceleration>-0.000921 -0.001114 0.000415 0.002975 4e-06 6.4e-05</acceleration>
+          <wrench>-2.3e-05 -2.8e-05 1e-05 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::rotor_3'>
+          <pose frame=''>-12.5985 -0.251059 0.21788 0 0.001086 4e-06</pose>
+          <velocity>8e-06 -2e-06 1e-05 1e-06 3.4e-05 -0</velocity>
+          <acceleration>0.000921 -0.004311 -0.000413 0.002968 1.5e-05 6.4e-05</acceleration>
+          <wrench>2.3e-05 -0.000108 -1e-05 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::rotor_4'>
+          <pose frame=''>-12.1135 -0.25106 0.217353 0 0.001086 1e-06</pose>
+          <velocity>8e-06 -1e-06 -7e-06 1e-06 3.4e-05 -0</velocity>
+          <acceleration>0.00092 -0.001123 -0.00042 0.002954 2.3e-05 6.3e-05</acceleration>
+          <wrench>2.3e-05 -2.8e-05 -1e-05 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_base::rotor_5'>
+          <pose frame=''>-12.5985 0.028941 0.21788 0 0.001086 -1e-06</pose>
+          <velocity>7e-06 -2e-06 1e-05 1e-06 3.4e-05 -0</velocity>
+          <acceleration>-0.000904 -0.00429 0.000416 0.002947 1.1e-05 6.3e-05</acceleration>
+          <wrench>-2.3e-05 -0.000107 1e-05 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_gimbal_camera::base_link'>
+          <pose frame=''>-12.3562 -0.121059 0.069694 1.57109 1e-06 1.57</pose>
+          <velocity>2e-06 -1e-06 2e-06 2e-06 3.4e-05 2.7e-05</velocity>
+          <acceleration>6.7e-05 -0.002257 -3e-05 0.002985 4e-06 0.054021</acceleration>
+          <wrench>1.3e-05 -0.000451 -6e-06 0 -0 0</wrench>
+        </link>
+        <link name='MBZIRColo_gimbal_camera::tilt_link'>
+          <pose frame=''>-12.3562 -0.121059 0.069694 1.57115 1e-06 1.57</pose>
+          <velocity>2e-06 -1e-06 2e-06 2e-06 3.5e-05 2.7e-05</velocity>
+          <acceleration>7.3e-05 -0.002429 -3.2e-05 0.003262 4e-06 0.054624</acceleration>
+          <wrench>1e-06 -2.4e-05 -0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='collapsed_police_station'>
+        <pose frame=''>0.016013 -0.16169 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0.016013 -0.16169 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='water_tower'>
+        <pose frame=''>10.4384 -18.9028 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>10.4384 -18.9028 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-38.4604 11.6408 11.561 0 -0.341797 -1.67498</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
