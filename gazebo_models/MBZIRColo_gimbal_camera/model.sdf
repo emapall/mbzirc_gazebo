@@ -1,8 +1,8 @@
 <?xml version='1.0'?>
 <sdf version="1.4">
-<model name="MBZIRColo_gimbal_camera">
-  <pose>12 12 0.5 0 0 0</pose>
-  <static>false</static>
+  <model name="MBZIRColo_gimbal_camera">
+    <pose>12 12 0.5 0 0 0</pose>
+    <static>false</static>
     <link name='base_link'>
       <inertial>
         <mass>0.2</mass>
@@ -18,10 +18,10 @@
 
       <visual name='base_main_visual'>
         <geometry>
-         <mesh>
-           <scale>0.001 0.001 0.001</scale>
-           <uri>model://gimbal_small_2d/meshes/base_main.dae</uri>
-         </mesh>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://gimbal_small_2d/meshes/base_main.dae</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
@@ -31,12 +31,12 @@
         </material>
       </visual>
 
-     <visual name='base_arm_visual'>
+      <visual name='base_arm_visual'>
         <geometry>
-         <mesh>
-           <scale>0.001 0.001 0.001</scale>
-           <uri>model://gimbal_small_2d/meshes/base_arm.dae</uri>
-         </mesh>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://gimbal_small_2d/meshes/base_arm.dae</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
@@ -83,10 +83,10 @@
       <visual name='tilt_visual'>
         <pose>0 0 -0.005 0 0 0</pose>
         <geometry>
-         <mesh>
-           <scale>0.001 0.001 0.001</scale>
-           <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
-         </mesh>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
+          </mesh>
         </geometry>
         <material>
           <script>
@@ -99,10 +99,10 @@
       <collision name='tilt_collision'>
         <pose>0 0 -0.005 0 0 0</pose>
         <geometry>
-         <mesh>
-           <scale>0.001 0.001 0.001</scale>
-           <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
-         </mesh>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://gimbal_small_2d/meshes/tilt.dae</uri>
+          </mesh>
         </geometry>
       </collision>
 
@@ -115,7 +115,7 @@
           </cylinder>
         </geometry>
 
-         <material>
+        <material>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/Grey</name>
@@ -137,11 +137,14 @@
         <pose>0 0 0 -1.57 -1.57 0</pose>
         <update_rate>10</update_rate>
         <camera>
+          <save enabled="true">
+            <path>/tmp/camera_save_tutorial</path>
+          </save>
           <horizontal_fov>2.0</horizontal_fov>
           <image>
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
           </image>
           <clip>
             <near>0.05</near>
@@ -178,11 +181,11 @@
       </sensor>
 
     </link>
-   
+
     <joint name='tilt_joint' type='revolute'>
-       <parent>tilt_link</parent> 
-       <child>base_link</child>
-        <!--I inverted the child and partend wrt the gimbal small 2d, because the axis poses dindn't 
+      <parent>tilt_link</parent>
+      <child>base_link</child>
+      <!--I inverted the child and partend wrt the gimbal small 2d, because the axis poses dindn't 
         convince much. Being this a revulte joint and having the 2 reference frames AT LEAST parallel
         if not coincindent, nothing should change.
         Needs profound verification.-->
@@ -197,17 +200,17 @@
         <dynamics>
           <damping>0.5</damping>
         </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame> <!--non cambia: 
+        <use_parent_model_frame>1</use_parent_model_frame>        <!--non cambia: 
         sia che sia true sia che sia false, l'asse viene sempre posizionato attraverso il baricentro della camera, e quindi
         questa da sola non cade mai. (see note above). -->
         <limit>
           <lower>-3.14159265</lower>
           <upper>3.14159265</upper>
           <!--<effort>10</effort>-->
-         <!-- <velocity>-1</velocity>-->
+          <!-- <velocity>-1</velocity>-->
         </limit>
       </axis>
-      <pose>0 0 0 0 0 0</pose> <!-- moving the axis along the axis itself should 
+      <pose>0 0 0 0 0 0</pose>      <!-- moving the axis along the axis itself should 
       change nothing-->
     </joint>
 
