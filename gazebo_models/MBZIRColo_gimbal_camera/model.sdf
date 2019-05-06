@@ -138,7 +138,7 @@
         <update_rate>50</update_rate>
         <camera>
           <save enabled="true">
-            <path>/tmp/camera_save_tutorial</path>
+            <path>/tmp/MBZIRColo_camera_raw</path>
           </save>
           <horizontal_fov>2.0</horizontal_fov>
           <image>
