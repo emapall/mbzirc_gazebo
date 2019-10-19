@@ -88,55 +88,41 @@
 
     <model name="MBZIRColo_demo">
       <include>
-	      <uri>model://MBZIRColo_demo</uri>
+        <uri>model://MBZIRColo_demo</uri>
         <!--<uri>model://iris_with_standoffs_demo</uri> -->
       </include>
     </model>
+
     
-  <actor name="animated_box">
-    <link name="box_link">
-      <visual name="visual">
-         <geometry>
-          <sphere>
-            <radius>0.1</radius>
-          </sphere>
-        </geometry>
-        <transparency>0.0 </transparency>
-        <material>
-          <script>
-            <name>Gazebo/RedBright</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
-        </material>
-      </visual>
-    </link>
-    <script>
-      <loop>true</loop>
-      <auto_start>true</auto_start>
-      <trajectory id="0" type="square">
-          <waypoint>
-            <time>0.0</time>
-            <pose>1 0 1 0 0 0</pose>
-          </waypoint>
-          <waypoint>
-            <time>1.0</time>
-            <pose>2 -1 1 0 0 0</pose>
-          </waypoint>
-          <waypoint>
-            <time>2.0</time>
-            <pose>3 0 1 0 0 0</pose>
-          </waypoint>
-          <waypoint>
-            <time>3.0</time>
-            <pose>2 1 1 0 0 0</pose>
-          </waypoint>
-          <waypoint>
-            <time>4.0</time>
-            <pose>1 0 1 0 0 0</pose>
-          </waypoint>
-      </trajectory>
-    </script>
-  </actor>
+    <model name="baloon_actor">
+      <pose>0 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.1</radius>
+            </sphere>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.1</radius>
+            </sphere>
+          </geometry>
+          <transparency>0.0 </transparency>
+          <material>
+            <script>
+              <name>Gazebo/RedBright</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+
+      <plugin name="ros_prova" filename="libbaloon_controller_ros.so"/>
+    </model>
 
   </world>
 </sdf>

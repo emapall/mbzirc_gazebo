@@ -7,11 +7,30 @@ project(mbzirc_gazebo)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS 
+  roscpp 
+  gazebo_ros 
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
+find_package(gazebo REQUIRED)
 
+include_directories(include ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS})
+link_directories(${GAZEBO_LIBRARY_DIRS})
+include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
+
+add_library(baloon_controller_ros SHARED gazebo_plugins/baloon_controller.cc)
+target_link_libraries(baloon_controller_ros ${GAZEBO_LIBRARIES})
+
+add_library(ros_prova SHARED gazebo_plugins/prova_modelplugin/provaRos.cc)
+target_link_libraries(ros_prova ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
+catkin_package(
+  DEPENDS 
+    roscpp 
+    gazebo_ros 
+)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
