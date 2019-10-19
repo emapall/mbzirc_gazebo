@@ -1,0 +1,3 @@
+/home/ema/MBZIRC/drone_ws/src/mbzirc_gazebo/gazebo_plugins/build/CMakeFiles/rebuild_cache.dir
+/home/ema/MBZIRC/drone_ws/src/mbzirc_gazebo/gazebo_plugins/build/CMakeFiles/baloon_controller.dir
+/home/ema/MBZIRC/drone_ws/src/mbzirc_gazebo/gazebo_plugins/build/CMakeFiles/edit_cache.dir
