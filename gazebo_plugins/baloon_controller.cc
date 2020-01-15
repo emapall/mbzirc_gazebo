@@ -13,28 +13,22 @@
 #include "geometry_msgs/PointStamped.h"
 
 
-ignition::math::Pose3d traj(float t, geometry_msgs::PointStamped& tgtPosRos, double theta){
-
-    // float x=13*sin(theta);
-    // float y=13*cos(theta);
-    // float z=3;
-
-    float x=30*(cos(0.1*t)/(1+pow((sin(0.1*t)), 2)));
-    float y=30*((cos(0.1*t)*sin(0.1*t))/(1+pow(sin(0.1*t),2)));
-    float z=5;
-
-    tgtPosRos.point.x=x;
-    tgtPosRos.point.y=y;
-    tgtPosRos.point.z=z;
-    return ignition::math::Pose3d(x,y,z,0,0,0);
-}
-
 namespace gazebo
 {
   class ModelPush : public ModelPlugin
   {
     public: void Load(physics::ModelPtr _parent, sdf::ElementPtr /*_sdf*/)
     {
+
+        if(n.getParam("balloon_trajectory", trajectory))
+            ROS_INFO("Found parameter: setting balloon trajectory to %s", trajectory.c_str());
+        else    {
+            ROS_WARN("Can't find trajectory type");
+        }
+
+        x=0;
+        y=0;
+        z=0;
       // Store the pointer to the model
       this->model = _parent;
       this->world = this->model->GetWorld();
@@ -54,7 +48,6 @@ namespace gazebo
       }
 
       baloonPos_pub=n.advertise<geometry_msgs::PointStamped>("target_pos",1);
-      // ROS_INFO("HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
     }
 
     // Called by the world update start event
@@ -68,12 +61,38 @@ namespace gazebo
         //std::cout<<world->SimTime().Float()<<std::endl;
 
         simTime=world->SimTime().Float();
-        this->model->SetWorldPose(traj(simTime, tgtPosRos,theta));
+        this->model->SetWorldPose(traj(simTime, tgtPosRos, theta, trajectory));
 
         if(ros::ok()){
           tgtPosRos.header.stamp = ros::Time::now();
           baloonPos_pub.publish(tgtPosRos);
         }
+    }
+
+
+
+    public: ignition::math::Pose3d traj(float t, geometry_msgs::PointStamped& tgtPosRos, double theta, std::string trajectory)
+    {
+
+
+         if( !strcmp(trajectory.c_str(),"STATIC" ) ) {
+
+             x=13*sin(theta);
+             y=13*cos(theta);
+             z=3;
+        }
+
+         if( !strcmp(trajectory.c_str(),"OTTO" ) ) {
+
+             x=30*(cos(0.1*t)/(1+pow((sin(0.1*t)), 2)));
+             y=30*((cos(0.1*t)*sin(0.1*t))/(1+pow(sin(0.1*t),2)));
+             z=5;
+         }
+
+        tgtPosRos.point.x=x;
+        tgtPosRos.point.y=y;
+        tgtPosRos.point.z=z;
+        return ignition::math::Pose3d(x,y,z,0,0,0);
     }
 
     // Pointer to the model
@@ -89,6 +108,10 @@ namespace gazebo
     private: bool initFlag=false;//not quite shure where beginning's stuff should be
     private: float simTime;
     private: double theta;
+    private: std::string trajectory;
+        float x;
+        float y;
+        float z;
 
      ros::Publisher baloonPos_pub;
      ros::NodeHandle n;
